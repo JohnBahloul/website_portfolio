@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Bahloul - Data Engineer</title>
-    <style>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -56,7 +56,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(45deg, #059669, #0ea5e9);
+            background: linear-gradient(45deg, #059669, #3b82f6, #0ea5e9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -77,7 +77,7 @@
         }
 
         .nav-links a:hover {
-            color: #059669;
+            color: #3b82f6;
         }
 
         .nav-links a::after {
@@ -87,7 +87,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(45deg, #059669, #0ea5e9);
+            background: linear-gradient(45deg, #059669, #3b82f6, #0ea5e9);
             transition: width 0.3s ease;
         }
 
@@ -114,7 +114,8 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(circle at 30% 20%, rgba(5, 150, 105, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(14, 165, 233, 0.15) 0%, transparent 50%);
+                        radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
             animation: pulse 4s ease-in-out infinite alternate;
         }
 
@@ -132,7 +133,7 @@
             font-size: 4rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #1e293b, #059669, #0ea5e9);
+            background: linear-gradient(45deg, #1e293b, #059669, #3b82f6, #0ea5e9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -149,7 +150,7 @@
         .cta-button {
             display: inline-block;
             padding: 1rem 2rem;
-            background: linear-gradient(45deg, #059669, #0ea5e9);
+            background: linear-gradient(45deg, #059669, #3b82f6, #0ea5e9);
             color: white;
             text-decoration: none;
             border-radius: 50px;
@@ -158,7 +159,7 @@
             animation: slideUp 1s ease-out 0.4s both;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(5, 150, 105, 0.3);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
         }
 
         .cta-button::before {
@@ -178,7 +179,7 @@
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(5, 150, 105, 0.4);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
         }
 
         @keyframes slideUp {
@@ -202,7 +203,7 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            background: linear-gradient(45deg, #059669, #0ea5e9);
+            background: linear-gradient(45deg, #059669, #3b82f6, #0ea5e9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -233,7 +234,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(45deg, #059669, #0ea5e9);
+            background: linear-gradient(45deg, #059669, #3b82f6, #0ea5e9);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -244,7 +245,7 @@
 
         .skill-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(5, 150, 105, 0.15);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
             background: rgba(255, 255, 255, 0.9);
         }
 
@@ -272,12 +273,12 @@
         }
 
         .tag {
-            background: rgba(5, 150, 105, 0.1);
+            background: rgba(59, 130, 246, 0.1);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;
-            border: 1px solid rgba(5, 150, 105, 0.2);
-            color: #059669;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
         }
 
         /* Projects Section */
@@ -303,7 +304,7 @@
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(5, 150, 105, 0.15);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
             background: rgba(255, 255, 255, 0.95);
         }
 
@@ -326,7 +327,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 255, 0.1));
+            background: linear-gradient(45deg, rgba(5, 150, 105, 0.1), rgba(59, 130, 246, 0.1), rgba(14, 165, 233, 0.1));
             opacity: 0;
             transition: opacity 0.3s ease;
             display: flex;
@@ -350,9 +351,9 @@
             gap: 1rem;
             margin: 1.5rem 0;
             padding: 1.5rem;
-            background: rgba(0, 212, 255, 0.05);
+            background: rgba(5, 150, 105, 0.05);
             border-radius: 15px;
-            border: 1px solid rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(5, 150, 105, 0.1);
         }
 
         .stat-item {
@@ -362,26 +363,26 @@
         .stat-number {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #00d4ff;
+            color: #059669;
             display: block;
         }
 
         .stat-label {
             font-size: 0.9rem;
-            opacity: 0.8;
+            color: #64748b;
             margin-top: 0.3rem;
         }
 
         .project-impact {
-            background: rgba(255, 0, 255, 0.05);
-            border: 1px solid rgba(255, 0, 255, 0.1);
+            background: rgba(14, 165, 233, 0.05);
+            border: 1px solid rgba(14, 165, 233, 0.1);
             border-radius: 15px;
             padding: 1.5rem;
             margin: 1.5rem 0;
         }
 
         .impact-title {
-            color: #ff00ff;
+            color: #0ea5e9;
             font-weight: 600;
             margin-bottom: 0.8rem;
             display: flex;
@@ -390,15 +391,15 @@
         }
 
         .project-challenge {
-            background: rgba(255, 165, 0, 0.05);
-            border: 1px solid rgba(255, 165, 0, 0.1);
+            background: rgba(5, 150, 105, 0.05);
+            border: 1px solid rgba(5, 150, 105, 0.1);
             border-radius: 15px;
             padding: 1.5rem;
             margin: 1.5rem 0;
         }
 
         .challenge-title {
-            color: #ffa500;
+            color: #059669;
             font-weight: 600;
             margin-bottom: 0.8rem;
             display: flex;
@@ -409,12 +410,12 @@
         .project-title {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #00d4ff;
+            color: #3b82f6;
         }
 
         .project-description {
             margin-bottom: 1.5rem;
-            opacity: 0.9;
+            color: #64748b;
             line-height: 1.6;
         }
 
@@ -426,11 +427,12 @@
         }
 
         .tech-tag {
-            background: rgba(255, 0, 255, 0.2);
+            background: rgba(5, 150, 105, 0.1);
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.8rem;
-            border: 1px solid rgba(255, 0, 255, 0.3);
+            border: 1px solid rgba(5, 150, 105, 0.2);
+            color: #059669;
         }
 
         .project-links {
@@ -439,20 +441,20 @@
         }
 
         .project-link {
-            color: #00d4ff;
+            color: #059669;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .project-link:hover {
-            color: #ff00ff;
+            color: #0ea5e9;
         }
 
         /* Journey Section */
         .journey {
             padding: 6rem 0;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .journey-content {
@@ -467,7 +469,7 @@
             aspect-ratio: 16/9;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 25px 50px rgba(5, 150, 105, 0.2);
         }
 
         .journey-video iframe {
@@ -483,7 +485,12 @@
         .journey-text h3 {
             font-size: 2rem;
             margin-bottom: 1.5rem;
-            color: #00d4ff;
+            color: #059669;
+        }
+
+        .journey-text p {
+            color: #64748b;
+            line-height: 1.7;
         }
 
         .journey-highlights {
@@ -496,9 +503,9 @@
             gap: 1rem;
             margin-bottom: 1.5rem;
             padding: 1rem;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.5);
             border-radius: 10px;
-            border-left: 3px solid #ff00ff;
+            border-left: 3px solid #0ea5e9;
         }
 
         .highlight-icon {
@@ -507,8 +514,12 @@
         }
 
         .highlight-content h4 {
-            color: #ff00ff;
+            color: #0ea5e9;
             margin-bottom: 0.5rem;
+        }
+
+        .highlight-content p {
+            color: #64748b;
         }
 
         @media (max-width: 768px) {
@@ -523,8 +534,16 @@
         }
         .contact {
             padding: 5rem 0;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.4);
             text-align: center;
+        }
+
+        .contact-content h2 {
+            color: #1e293b;
+        }
+
+        .contact-content p {
+            color: #64748b;
         }
 
         .contact-content {
@@ -543,19 +562,22 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #ffffff;
+            color: #475569;
             text-decoration: none;
             padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.6);
             border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(203, 213, 225, 0.3);
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(51, 65, 85, 0.08);
         }
 
         .contact-link:hover {
-            background: rgba(0, 212, 255, 0.1);
-            border-color: #00d4ff;
+            background: rgba(59, 130, 246, 0.1);
+            border-color: #3b82f6;
             transform: translateY(-2px);
+            color: #3b82f6;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
         }
 
         /* Footer */
@@ -589,15 +611,20 @@
         /* Floating particles animation */
         .particle {
             position: absolute;
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(59, 130, 246, 0.1);
             border-radius: 50%;
             pointer-events: none;
             animation: float 6s ease-in-out infinite;
         }
 
         .particle:nth-child(odd) {
-            background: rgba(255, 0, 255, 0.1);
+            background: rgba(5, 150, 105, 0.1);
             animation-delay: -3s;
+        }
+
+        .particle:nth-child(3n) {
+            background: rgba(14, 165, 233, 0.1);
+            animation-delay: -1.5s;
         }
 
         @keyframes float {
@@ -631,7 +658,7 @@
         <section id="home" class="hero">
             <div class="hero-content">
                 <h1>Analytics Engineer & Solution Architect</h1>
-                <p>Transforming complex data challenges into automated solutions that drive business growth and operational efficiency</p>
+                <p>Working with data to improve business decision-making and empower others through reliable, well-structured data.</p>
                 <a href="#projects" class="cta-button">Explore My Solutions</a>
             </div>
         </section>
@@ -815,10 +842,6 @@
                                 <span class="tech-tag">Looker</span>
                                 <span class="tech-tag">Cron Jobs</span>
                             </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">Technical Architecture →</a>
-                                <a href="#" class="project-link">ROI Analysis →</a>
-                            </div>
                         </div>
                     </div>
                     
@@ -877,10 +900,7 @@
                                 <span class="tech-tag">SQL</span>
                                 <span class="tech-tag">Python</span>
                             </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">Model Architecture →</a>
-                                <a href="#" class="project-link">Business Impact Study →</a>
-                            </div>
+
                         </div>
                     </div>
                     
@@ -939,10 +959,7 @@
                                 <span class="tech-tag">Email Automation</span>
                                 <span class="tech-tag">Regulatory Systems</span>
                             </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">System Architecture →</a>
-                                <a href="#" class="project-link">Compliance Framework →</a>
-                            </div>
+
                         </div>
                     </div>
                 </div>
