@@ -1,0 +1,1115 @@
+/* Floating particles animation */
+        .particle {
+            position: absolute;
+            background: rgba(5, 150, 105, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(odd) {
+            background: rgba(14, 165, <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Chen - Data Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 30%, #cbd5e1 100%);
+            color: #334155;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            backdrop-filter: blur(20px);
+            background: rgba(248, 250, 252, 0.9);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.1);
+            box-shadow: 0 4px 20px rgba(51, 65, 85, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #059669, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #475569;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #059669;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #059669, #0ea5e9);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(5, 150, 105, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(14, 165, 233, 0.15) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #1e293b, #059669, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #64748b;
+            animation: slideUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #059669, #0ea5e9);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: slideUp 1s ease-out 0.4s both;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(5, 150, 105, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(5, 150, 105, 0.4);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 5rem 0;
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #059669, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(203, 213, 225, 0.5);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(51, 65, 85, 0.08);
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #059669, #0ea5e9);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(5, 150, 105, 0.15);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .skill-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(5, 150, 105, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(5, 150, 105, 0.2);
+            color: #059669;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 6rem 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(203, 213, 225, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 8px 30px rgba(51, 65, 85, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(5, 150, 105, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .project-video {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .project-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+
+        .project-card:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #00d4ff;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.3rem;
+        }
+
+        .project-impact {
+            background: rgba(255, 0, 255, 0.05);
+            border: 1px solid rgba(255, 0, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .impact-title {
+            color: #ff00ff;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-challenge {
+            background: rgba(255, 165, 0, 0.05);
+            border: 1px solid rgba(255, 165, 0, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .challenge-title {
+            color: #ffa500;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00d4ff;
+        }
+
+        .project-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(255, 0, 255, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 0, 255, 0.3);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #ff00ff;
+        }
+
+        /* Journey Section */
+        .journey {
+            padding: 6rem 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .journey-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .journey-video {
+            position: relative;
+            aspect-ratio: 16/9;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.2);
+        }
+
+        .journey-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .journey-text {
+            padding-left: 2rem;
+        }
+
+        .journey-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #00d4ff;
+        }
+
+        .journey-highlights {
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            border-left: 3px solid #ff00ff;
+        }
+
+        .highlight-icon {
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .highlight-content h4 {
+            color: #ff00ff;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .journey-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .journey-text {
+                padding-left: 0;
+            }
+        }
+        .contact {
+            padding: 5rem 0;
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: #00d4ff;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(203, 213, 225, 0.3);
+            color: #64748b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Floating particles animation */
+        .particle {
+            position: absolute;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(odd) {
+            background: rgba(255, 0, 255, 0.1);
+            animation-delay: -3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating particles -->
+    <div class="particle" style="top: 10%; left: 10%; width: 10px; height: 10px;"></div>
+    <div class="particle" style="top: 20%; left: 80%; width: 15px; height: 15px;"></div>
+    <div class="particle" style="top: 60%; left: 20%; width: 8px; height: 8px;"></div>
+    <div class="particle" style="top: 80%; left: 70%; width: 12px; height: 12px;"></div>
+    <div class="particle" style="top: 40%; left: 90%; width: 6px; height: 6px;"></div>
+
+    <header>
+        <nav>
+            <div class="logo">John Bahloul</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Analytics Engineer & Solution Architect</h1>
+                <p>Transforming complex data challenges into automated solutions that drive business growth and operational efficiency</p>
+                <a href="#projects" class="cta-button">Explore My Solutions</a>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title">Technical Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">⚡</div>
+                        <h3>Workflow Automation & Integration</h3>
+                        <p>Building no-code/low-code solutions that eliminate manual tasks and streamline business processes across platforms.</p>
+                        <div class="skill-tags">
+                            <span class="tag">Zapier</span>
+                            <span class="tag">Make</span>
+                            <span class="tag">APIs</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🏗️</div>
+                        <h3>Data Engineering & Modeling</h3>
+                        <p>Designing scalable data pipelines and dimensional models that power business intelligence and decision-making.</p>
+                        <div class="skill-tags">
+                            <span class="tag">dbt</span>
+                            <span class="tag">Snowflake</span>
+                            <span class="tag">Fivetran</span>
+                            <span class="tag">Airflow</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">📊</div>
+                        <h3>Business Intelligence & Visualization</h3>
+                        <p>Creating powerful dashboards and analytics that provide real-time insights for strategic decision making.</p>
+                        <div class="skill-tags">
+                            <span class="tag">Looker</span>
+                            <span class="tag">LookML</span>
+                            <span class="tag">Tableau</span>
+                            <span class="tag">Power BI</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🔧</div>
+                        <h3>CRM & Sales Operations</h3>
+                        <p>Optimizing sales workflows through CRM automation, lead management, and revenue operations excellence.</p>
+                        <div class="skill-tags">
+                            <span class="tag">Salesforce</span>
+                            <span class="tag">HubSpot</span>
+                            <span class="tag">Kixie</span>
+                            <span class="tag">Zendesk</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🎯</div>
+                        <h3>Analytics Engineering</h3>
+                        <p>Building robust data transformation pipelines with testing, monitoring, and documentation best practices.</p>
+                        <div class="skill-tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">BigQuery</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🚀</div>
+                        <h3>Solution Architecture</h3>
+                        <p>Designing end-to-end solutions that integrate multiple systems and deliver measurable business value.</p>
+                        <div class="skill-tags">
+                            <span class="tag">API Integration</span>
+                            <span class="tag">Data Architecture</span>
+                            <span class="tag">Process Design</span>
+                            <span class="tag">Automation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" class="journey">
+            <div class="container">
+                <h2 class="section-title">My Analytics Journey</h2>
+                <div class="journey-content">
+                    <div class="journey-video">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Alex Chen - My Analytics Engineering Journey" allowfullscreen></iframe>
+                    </div>
+                    <div class="journey-text">
+                        <h3>From Spreadsheets to Strategic Insights</h3>
+                        <p>My journey into analytics engineering began with a simple question: "Why does it take weeks to get basic business metrics?" Five years later, I've helped transform how organizations understand and act on their data.</p>
+                        
+                        <div class="journey-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">🎓</div>
+                                <div class="highlight-content">
+                                    <h4>Started in Finance</h4>
+                                    <p>Began building Excel models for financial forecasting, quickly realizing the power of automated data analysis.</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">💡</div>
+                                <div class="highlight-content">
+                                    <h4>Discovered dbt</h4>
+                                    <p>Found my calling in analytics engineering - bringing software engineering best practices to data transformation.</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">🚀</div>
+                                <div class="highlight-content">
+                                    <h4>Built Data Teams</h4>
+                                    <p>Led the creation of analytics engineering functions at 3 different companies, scaling from 1 to 15+ analysts.</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">🌟</div>
+                                <div class="highlight-content">
+                                    <h4>Community Impact</h4>
+                                    <p>Regular speaker at dbt meetups and contributor to open-source analytics tools used by thousands of practitioners.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-video">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Helium 10 Automation Demo" allowfullscreen></iframe>
+                            <div class="video-overlay">
+                                <span>▶️</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Helium 10 Data Automation Pipeline</h3>
+                            <p class="project-description">Transformed a manual, time-consuming data extraction process into a fully automated pipeline that delivers real-time Amazon keyword insights. This end-to-end solution eliminated hours of daily manual work while providing superior data reliability and accessibility.</p>
+                            
+                            <div class="project-challenge">
+                                <div class="challenge-title">
+                                    <span>⏰</span>
+                                    <span>The Challenge</span>
+                                </div>
+                                <p>The team was manually extracting data from Helium 10 daily, spending 3+ hours on repetitive tasks. Data was inconsistent, often delayed, and prone to human error, making it difficult to track Amazon keyword trends and search volumes effectively.</p>
+                            </div>
+
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">3hrs</span>
+                                    <span class="stat-label">Daily Time Saved</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">100%</span>
+                                    <span class="stat-label">Automation Rate</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">24/7</span>
+                                    <span class="stat-label">Monitoring</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">0</span>
+                                    <span class="stat-label">Manual Errors</span>
+                                </div>
+                            </div>
+
+                            <div class="project-impact">
+                                <div class="impact-title">
+                                    <span>🎯</span>
+                                    <span>Business Impact</span>
+                                </div>
+                                <p>Freed up 15+ hours weekly for strategic analysis, improved data accuracy to 100%, and enabled real-time decision making for Amazon marketplace optimization. The Looker dashboard became the primary tool for keyword strategy decisions.</p>
+                            </div>
+
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Selenium</span>
+                                <span class="tech-tag">Google Sheets API</span>
+                                <span class="tech-tag">Fivetran</span>
+                                <span class="tech-tag">dbt</span>
+                                <span class="tech-tag">Looker</span>
+                                <span class="tech-tag">Cron Jobs</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Technical Architecture →</a>
+                                <a href="#" class="project-link">ROI Analysis →</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-video">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Multi-Touch Attribution Model Demo" allowfullscreen></iframe>
+                            <div class="video-overlay">
+                                <span>▶️</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Advanced Marketing Attribution Model</h3>
+                            <p class="project-description">Built a sophisticated multi-touch attribution system for Cribl that revolutionized how marketing performance was measured and optimized. This strategic project provided marketing leadership with unprecedented visibility into campaign effectiveness across the entire customer journey.</p>
+                            
+                            <div class="project-challenge">
+                                <div class="challenge-title">
+                                    <span>🎯</span>
+                                    <span>The Challenge</span>
+                                </div>
+                                <p>Marketing teams were flying blind with last-touch attribution, leading to misallocated budgets and missed opportunities. Complex B2B sales cycles made it impossible to understand which touchpoints truly drove conversions and revenue.</p>
+                            </div>
+
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">Attribution Models</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">100K+</span>
+                                    <span class="stat-label">Touch Points</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">12mo</span>
+                                    <span class="stat-label">Lookback Window</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">35%</span>
+                                    <span class="stat-label">Budget Optimization</span>
+                                </div>
+                            </div>
+
+                            <div class="project-impact">
+                                <div class="impact-title">
+                                    <span>🚀</span>
+                                    <span>Strategic Transformation</span>
+                                </div>
+                                <p>Enabled data-driven marketing decisions with U-shaped, W-shaped, and multi-touch models. Marketing could finally see which channels drove real revenue, leading to better resource allocation and improved campaign performance across all touchpoints.</p>
+                            </div>
+
+                            <div class="project-tech">
+                                <span class="tech-tag">Adobe Marketo</span>
+                                <span class="tech-tag">Salesforce</span>
+                                <span class="tech-tag">dbt</span>
+                                <span class="tech-tag">Looker</span>
+                                <span class="tech-tag">LookML</span>
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Model Architecture →</a>
+                                <a href="#" class="project-link">Business Impact Study →</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-video">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Twilio Phone Number Automation Demo" allowfullscreen></iframe>
+                            <div class="video-overlay">
+                                <span>▶️</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Enterprise Phone Number Management System</h3>
+                            <p class="project-description">Developed multiple automation solutions at Twilio that transformed phone number operations from manual, error-prone processes to streamlined, automated workflows. These systems managed millions of phone numbers across global markets while ensuring regulatory compliance.</p>
+                            
+                            <div class="project-challenge">
+                                <div class="challenge-title">
+                                    <span>⚖️</span>
+                                    <span>The Challenge</span>
+                                </div>
+                                <p>Manual processes for regulatory compliance, inventory management, and customer porting were creating bottlenecks. The team needed contractor support for basic operations, and inactive accounts were hoarding valuable phone number inventory.</p>
+                            </div>
+
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">1M+</span>
+                                    <span class="stat-label">Numbers Managed</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">50+</span>
+                                    <span class="stat-label">Countries</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">80%</span>
+                                    <span class="stat-label">Manual Work Eliminated</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">$100K+</span>
+                                    <span class="stat-label">Annual Savings</span>
+                                </div>
+                            </div>
+
+                            <div class="project-impact">
+                                <div class="impact-title">
+                                    <span>💡</span>
+                                    <span>Operational Excellence</span>
+                                </div>
+                                <p>Eliminated contractor dependency, automated regulatory reporting across global markets, optimized inventory to prevent stockouts, and recovered thousands of phone numbers from inactive accounts back into sellable inventory.</p>
+                            </div>
+
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Zendesk API</span>
+                                <span class="tech-tag">Looker</span>
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">Internal APIs</span>
+                                <span class="tech-tag">Email Automation</span>
+                                <span class="tech-tag">Regulatory Systems</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">System Architecture →</a>
+                                <a href="#" class="project-link">Compliance Framework →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>Product team built features based on gut feelings and loudest customers. No systematic way to measure feature adoption, user satisfaction, or business impact. 40% of new features had zero engagement after launch.</p>
+                            </div>
+
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">5M+</span>
+                                    <span class="stat-label">Monthly Users</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">500+</span>
+                                    <span class="stat-label">Tracked Events</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">25+</span>
+                                    <span class="stat-label">A/B Tests/Month</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">67%</span>
+                                    <span class="stat-label">Feature Success Rate</span>
+                                </div>
+                            </div>
+
+                            <div class="project-impact">
+                                <div class="impact-title">
+                                    <span>💡</span>
+                                    <span>Product Excellence Results</span>
+                                </div>
+                                <p>Increased feature adoption by 180%, reduced time-to-market by 40% through validated learning, and established data-driven product culture with experimentation at its core.</p>
+                            </div>
+
+                            <div class="project-tech">
+                                <span class="tech-tag">Amplitude</span>
+                                <span class="tech-tag">Segment</span>
+                                <span class="tech-tag">dbt</span>
+                                <span class="tech-tag">Hex Notebooks</span>
+                                <span class="tech-tag">Optimizely</span>
+                                <span class="tech-tag">Mixpanel</span>
+                                <span class="tech-tag">Jupyter</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Analytics Framework →</a>
+                                <a href="#" class="project-link">Experimentation Guide →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>="stat-item">
+                                    <span class="stat-number">Real-time</span>
+                                    <span class="stat-label">Profile Updates</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">340%</span>
+                                    <span class="stat-label">ROI Increase</span>
+                                </div>
+                            </div>
+
+                            <div class="project-impact">
+                                <div class="impact-title">
+                                    <span>💡</span>
+                                    <span>Game-Changing Results</span>
+                                </div>
+                                <p>Personalized recommendations increased conversion rates by 156%, predictive churn models saved $8.2M in retention campaigns, and customer satisfaction scores improved by 42% through proactive support.</p>
+                            </div>
+
+                            <div class="project-tech">
+                                <span class="tech-tag">dbt Cloud</span>
+                                <span class="tech-tag">Fivetran</span>
+                                <span class="tech-tag">Looker</span>
+                                <span class="tech-tag">BigQuery</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Segment CDP</span>
+                                <span class="tech-tag">Databricks</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Platform Demo →</a>
+                                <a href="#" class="project-link">ML Pipeline Details →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <h2 class="section-title">Let's Build Something Amazing</h2>
+                    <p>Ready to tackle your next data challenge? I'm always excited to discuss innovative projects and scalable solutions.</p>
+                    <div class="contact-links">
+                        <a href="mailto:alex@example.com" class="contact-link">
+                            <span>📧</span>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://linkedin.com/in/alexchen" class="contact-link">
+                            <span>💼</span>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/alexchen" class="contact-link">
+                            <span>💻</span>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Alex Chen. Crafted with data and creativity.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 10, 0.95)';
+            } else {
+                header.style.background = 'rgba(10, 10, 10, 0.8)';
+            }
+        });
+
+        // Animate skill cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe skill cards and project cards
+        document.querySelectorAll('.skill-card, .project-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add dynamic particle movement
+        document.querySelectorAll('.particle').forEach((particle, index) => {
+            particle.style.animationDelay = `${index * 0.5}s`;
+            particle.style.animationDuration = `${6 + index}s`;
+        });
+    </script>
+</body>
+</html>
